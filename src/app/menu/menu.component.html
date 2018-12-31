@@ -1,0 +1,60 @@
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo"></div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
+      <li nz-menu-item>nav 1</li>
+      <li nz-menu-item>nav 2</li>
+      <li nz-menu-item>nav 3</li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <!--[nzTrigger]="triggerTemplate"  隐藏默认在导航栏下方的隐藏操作按钮
+     [(nzCollapsed)]="isCollapsed"  缩小后自动修改页面右侧位置-->
+    <nz-sider style="background:#fff;" [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+      <ul nz-menu [nzMode]="'inline'" style="height:100%" [nzTheme]="'dark'" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu>
+          <span title><i nz-icon type="user"></i><span class="nav-text">subnav 1</span></span>
+          <ul>
+            <li nz-menu-item>option1</li>
+            <li nz-menu-item>option2</li>
+            <li nz-menu-item>option3</li>
+            <li nz-menu-item>option4</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="laptop"></i><span class="nav-text">subnav 2</span></span>
+          <ul>
+            <li nz-menu-item>option5</li>
+            <li nz-menu-item>option6</li>
+            <li nz-menu-item>option7</li>
+            <li nz-menu-item>option8</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="notification"></i><span class="nav-text">subnav 3</span></span>
+          <ul>
+            <li nz-menu-item>option9</li>
+            <li nz-menu-item>option10</li>
+            <li nz-menu-item>option11</li>
+            <li nz-menu-item>option12</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-content style="margin:0 16px;">
+        <nz-breadcrumb style="margin:16px 0;">
+          <nz-breadcrumb-item>User</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <!--<div style="padding:24px; background: #fff; min-height: 360px;">-->
+          <!--Bill is a cat.-->
+        <!--</div>-->
+        <!--<app-form></app-form>-->
+        <app-upfile></app-upfile>
+      </nz-content>
+      <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

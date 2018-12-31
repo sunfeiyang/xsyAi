@@ -1,0 +1,20 @@
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of dic?.data" [nzHeader]="panel.dichanzi" [nzActive]="panel.active">
+    <p>[{{panel.dic_duyin}}] 【部首】：{{panel.dic_bushou}}</p>
+    <div *ngIf="panel.dic_jianjie != null">
+      <nz-collapse>
+        <nz-collapse-panel [nzHeader]=""  [nzActive]="true">
+          <p>{{panel.dic_jianjie}}</p>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+    <div *ngIf="panel.dic_xiangjie != null">
+      <nz-collapse>
+        <nz-collapse-panel [nzHeader]=""
+                           [nzActive]="false">
+          <p>{{panel.dic_xiangjie}}</p>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>

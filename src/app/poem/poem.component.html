@@ -1,0 +1,21 @@
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of poem?.data; let i = index" [nzHeader]="panel.poembiaoti" [nzActive]="panel.active">
+    <p>[{{panel?.poemzuozhe}}]</p>
+    <div *ngIf="panel.poemneirong != null">
+      <nz-collapse>
+        <nz-collapse-panel [nzHeader]=""
+                           [nzActive]="true">
+          <p>{{panel.poemneirong}}</p>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+    <div *ngIf="panel.poem_jieshao != null">
+      <nz-collapse>
+        <nz-collapse-panel [nzHeader]=""
+                           [nzActive]="false">
+          <p>{{panel.poem_jieshao}}</p>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>

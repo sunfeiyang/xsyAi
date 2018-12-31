@@ -1,0 +1,57 @@
+<nz-layout [ngStyle]="{ 'height': '100%' }">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate"  [nzBreakpoint]="'lg'" [hidden]="ishidden">
+    <div class="logo" [ngStyle]="{ 'text-align': 'center','line-height':'32px','color':'white' }">
+      XSY
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu>
+        <span title><i nz-icon type="read"></i><span class="nav-text">Culture</span></span>
+        <ul>
+          <li nz-menu-item [routerLink]="['Allegorical']">Allegorical</li>
+          <li nz-menu-item [routerLink]="['Dic']">Dic</li>
+          <li nz-menu-item [routerLink]="['Famous']">Famous</li>
+          <li nz-menu-item [routerLink]="['Idiom']">Idiom</li>
+          <li nz-menu-item [routerLink]="['Poem']">Poem</li>
+          <li nz-menu-item [routerLink]="['TodayHistory']">TodayHistory</li>
+          <li nz-menu-item [routerLink]="['WordSea']">WordSea</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="video-camera"></i><span class="nav-text">Movie</span></span>
+        <ul>
+          <li nz-menu-item>Team 1</li>
+          <li nz-menu-item>Team 2</li>
+        </ul>
+      </li>
+      <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text" [routerLink]="['OCR']">OCR</span></span></li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <i class="trigger" nz-icon [type]="ishidden?'right':'left'" (click)="ishidden=!ishidden"></i>
+      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
+      <input type="text" nz-input placeholder="搜索"><i nz-icon type="search" style="padding-left: 10px"></i>
+    </nz-header>
+    <nz-content style="margin:6px 16px;">
+      <!--<nz-input-group [nzSuffix]="suffixIconSearch" style="margin-bottom:6px">-->
+        <!--<input type="text" nz-input placeholder="搜索">-->
+      <!--</nz-input-group>-->
+      <!--<ng-template #suffixIconSearch>-->
+        <!--<i nz-icon type="search"></i>-->
+      <!--</ng-template>-->
+      <!--<nz-breadcrumb style="margin:16px 0;">-->
+        <!--<nz-breadcrumb-item>User</nz-breadcrumb-item>-->
+        <!--<nz-breadcrumb-item>Bill</nz-breadcrumb-item>-->
+      <!--</nz-breadcrumb>-->
+      <!--<div style="padding:24px; background: #fff; min-height: 360px;">-->
+        <!--Bill is a cat.-->
+      <!--</div>-->
+      <!-- 插座 -->
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer style="text-align: center;">XSY ©2018 developer sunfy</nz-footer>
+  </nz-layout>
+</nz-layout>
+<ng-template #trigger>
+  <i nz-icon type="up"></i>
+</ng-template>

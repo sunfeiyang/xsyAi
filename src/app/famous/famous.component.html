@@ -1,0 +1,15 @@
+<!--<div style="margin-bottom: 8px;"><button nz-button (click)="change()">Switch Data</button></div>-->
+<nz-list [nzDataSource]="famous?.data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+  <ng-template #item let-item>
+    <nz-list-item>
+      <nz-list-item-meta
+        [nzTitle]="nzTitle"
+        nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.famoussaying}}">
+        <ng-template #nzTitle>
+          <a>{{item.famousname}}</a>
+        </ng-template>
+      </nz-list-item-meta>
+    </nz-list-item>
+  </ng-template>
+</nz-list>
