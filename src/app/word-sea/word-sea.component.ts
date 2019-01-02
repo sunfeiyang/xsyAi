@@ -21,8 +21,10 @@ export class WordSeaComponent implements OnInit {
 
   public wordsea: Result;
 
+  private pageNum = Math.ceil(Math.random() * 4500);
+
   ngOnInit() {
-    this.http.get('/yy/selwordseaPage/自?pageSize=20&pageNum=1').subscribe(res => {
+    this.http.get('/yy/selwordseaPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {
       this.wordsea = <Result>res;
     });
   }

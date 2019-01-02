@@ -57,6 +57,8 @@ export class TodayHistoryComponent implements OnInit {
 
   public todayHistory: Result;
 
+  private pageNum = Math.ceil(Math.random() * 100);
+
   ngOnInit() {
     this.http.get('/yy/seltoday/1').subscribe(res => {
       this.todayHistory = <Result>res;

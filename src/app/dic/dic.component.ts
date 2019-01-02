@@ -22,8 +22,10 @@ export class DicComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  private pageNum = Math.ceil(Math.random() * 1000);
+
   ngOnInit() {
-    this.http.get('/yy/seldicPage/自?pageSize=20&pageNum=0').subscribe(res => {this.dic = <Result>res; });
+    this.http.get('/yy/seldicPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {this.dic = <Result>res; });
   }
 
 }

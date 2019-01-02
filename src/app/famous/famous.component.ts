@@ -54,10 +54,12 @@ export class FamousComponent implements OnInit {
 
   public famous: Result;
 
+  private pageNum = Math.ceil(Math.random() * 320);
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/yy/selfamousPage/自?pageSize=20&pageNum=0').subscribe(res =>{
+    this.http.get('/yy/selfamousPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res =>{
       this.famous = <Result>res;
     });
   }

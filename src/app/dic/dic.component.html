@@ -1,18 +1,18 @@
 <nz-collapse>
-  <nz-collapse-panel *ngFor="let panel of dic?.data" [nzHeader]="panel.dichanzi" [nzActive]="panel.active">
+  <nz-collapse-panel *ngFor="let panel of dic?.data; let i = index" [nzHeader]="panel.dichanzi" [nzActive]="i===0">
     <p>[{{panel.dic_duyin}}] 【部首】：{{panel.dic_bushou}}</p>
-    <div *ngIf="panel.dic_jianjie != null">
+    <div *ngIf="panel.dic_jianjie != null && panel.dic_jianjie != ''">
       <nz-collapse>
-        <nz-collapse-panel [nzHeader]=""  [nzActive]="true">
-          <p>{{panel.dic_jianjie}}</p>
+        <nz-collapse-panel [nzHeader]="'【释义】'"  [nzActive]="true">
+          <p [innerHTML]="panel.dic_jianjie"></p>
         </nz-collapse-panel>
       </nz-collapse>
     </div>
-    <div *ngIf="panel.dic_xiangjie != null">
+    <div *ngIf="panel.dic_xiangjie != null && panel.dic_xiangjie != ''">
       <nz-collapse>
-        <nz-collapse-panel [nzHeader]=""
+        <nz-collapse-panel [nzHeader]="'【详细释义】'"
                            [nzActive]="false">
-          <p>{{panel.dic_xiangjie}}</p>
+          <p [innerHTML]="panel.dic_xiangjie"></p>
         </nz-collapse-panel>
       </nz-collapse>
     </div>

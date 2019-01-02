@@ -40,8 +40,10 @@ export class IdiomComponent implements OnInit {
 
   public idiom: Result;
 
+  private pageNum = Math.ceil(Math.random() * 300);
+
   ngOnInit() {
-    this.http.get('/yy/selidiomPage/自?pageSize=20&pageNum=0').subscribe(res => {this.idiom = <Result>res; });
+    this.http.get('/yy/selidiomPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {this.idiom = <Result>res; });
     // this.http.get('/yy/idiom/爱?rows=10&page=1').subscribe(res => {this.idiom = <Result>res; });
   }
 

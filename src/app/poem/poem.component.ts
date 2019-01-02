@@ -13,8 +13,10 @@ export class PoemComponent implements OnInit {
 
   public poem: Result;
 
+  private pageNum = Math.ceil(Math.random() * 160);
+
   ngOnInit() {
-    this.http.get('/yy/selpoemPage/自?pageSize=20&pageNum=0').subscribe(res => {
+    this.http.get('/yy/selpoemPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {
       this.poem = <Result>res;
     });
   }

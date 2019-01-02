@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
     this.triggerTemplate = this.customTrigger;
   }
 
+  notify(): void {
+    console.log('notify');
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -1,19 +1,19 @@
 <nz-collapse>
-  <nz-collapse-panel *ngFor="let panel of poem?.data; let i = index" [nzHeader]="panel.poembiaoti" [nzActive]="panel.active">
+  <nz-collapse-panel *ngFor="let panel of poem?.data; let i = index" [nzHeader]="panel.poembiaoti" [nzActive]="i===0">
     <p>[{{panel?.poemzuozhe}}]</p>
-    <div *ngIf="panel.poemneirong != null">
+    <div *ngIf="panel.poemneirong != null && panel.poemneirong != ''">
       <nz-collapse>
-        <nz-collapse-panel [nzHeader]=""
+        <nz-collapse-panel [nzHeader]="'【内容】'"
                            [nzActive]="true">
-          <p>{{panel.poemneirong}}</p>
+          <p [innerHTML]="panel.poemneirong"></p>
         </nz-collapse-panel>
       </nz-collapse>
     </div>
-    <div *ngIf="panel.poem_jieshao != null">
+    <div *ngIf="panel.poem_jieshao != null && panel.poem_jieshao != ''">
       <nz-collapse>
-        <nz-collapse-panel [nzHeader]=""
+        <nz-collapse-panel [nzHeader]="'【简介】'"
                            [nzActive]="false">
-          <p>{{panel.poem_jieshao}}</p>
+          <p [innerHTML]="panel.poem_jieshao"></p>
         </nz-collapse-panel>
       </nz-collapse>
     </div>

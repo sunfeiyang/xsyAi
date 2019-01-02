@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'Poem', component: PoemComponent},
   {path: 'TodayHistory', component: TodayHistoryComponent},
   {path: 'WordSea', component: WordSeaComponent},
+  {path: '*', redirectTo: '/xsyAi', pathMatch: 'full' },
 ];
 
 @NgModule({
