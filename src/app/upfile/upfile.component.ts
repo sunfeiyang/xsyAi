@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NzMessageService, UploadFile} from 'ng-zorro-antd';
 import {HttpClient} from '@angular/common/http';
-import {Result} from '../today-history/today-history.component';
 
 @Component({
   selector: 'app-upfile',

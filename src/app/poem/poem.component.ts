@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {CultureService, Result} from '../service/culture/culture.service';
 
 @Component({
   selector: 'app-poem',
@@ -8,23 +8,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PoemComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private cultureService: CultureService) {
   }
 
   public poem: Result;
 
-  private pageNum = Math.ceil(Math.random() * 160);
-
-  ngOnInit() {
-    this.http.get('/yy/selpoemPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {
-      this.poem = <Result>res;
-    });
+  getPage(): void {
+    const cultype = 'poem';
+    this.cultureService.getData(cultype)
+      .subscribe(res => this.poem = res);
   }
 
+  ngOnInit() {
+    this.getPage();
+  }
 }
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
-}
-

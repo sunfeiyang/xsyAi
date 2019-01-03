@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {CultureService, Result} from '../service/culture/culture.service';
 
 @Component({
   selector: 'app-famous',
@@ -8,67 +8,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FamousComponent implements OnInit {
 
-  loading = false;
-  data = [
-    {
-      title: 'Ant Design Title 1'
-    },
-    {
-      title: 'Ant Design Title 2'
-    },
-    {
-      title: 'Ant Design Title 3'
-    },
-    {
-      title: 'Ant Design Title 4'
-    }
-  ];
+  famous: Result;
 
-  change(): void {
-    this.loading = true;
-    if (this.data.length > 0) {
-      setTimeout(() => {
-        this.data = [];
-        this.loading = false;
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        this.data = [
-          {
-            title: 'Ant Design Title 1'
-          },
-          {
-            title: 'Ant Design Title 2'
-          },
-          {
-            title: 'Ant Design Title 3'
-          },
-          {
-            title: 'Ant Design Title 4'
-          }
-        ];
-        this.loading = false;
-      }, 1000);
-    }
+  constructor(private cultureService: CultureService) { }
+
+  getPage(): void {
+    const cultype = 'famous';
+    this.cultureService.getData(cultype)
+      .subscribe(res => this.famous = res);
   }
-
-  public famous: Result;
-
-  private pageNum = Math.ceil(Math.random() * 320);
-
-  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/yy/selfamousPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res =>{
-      this.famous = <Result>res;
-    });
+    this.getPage();
   }
 
 }
-
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
-}
-

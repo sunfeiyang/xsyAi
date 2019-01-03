@@ -21,6 +21,7 @@ import { FamousComponent } from './famous/famous.component';
 import { PoemComponent } from './poem/poem.component';
 import { TodayHistoryComponent } from './today-history/today-history.component';
 import { WordSeaComponent } from './word-sea/word-sea.component';
+import {CultureService} from './service/culture/culture.service';
 
 registerLocaleData(zh);
 
@@ -48,7 +49,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, CultureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

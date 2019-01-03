@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, Injector, OnInit} from '@angular/core';
+import {CultureService, Result} from '../service/culture/culture.service';
 
+// component装饰器是 @Injectable 的一个子类 所以可以直接注入别的服务
 @Component({
   selector: 'app-allegorical',
   templateUrl: './allegorical.component.html',
@@ -8,24 +9,33 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AllegoricalComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  // 此方法和构造器注入器结果相同（angular内部执行顺序）
+  // private cultureService: CultureService;
+  // constructor(private injector:Injector) {
+  //   this.cultureService = injector.get(CultureService);
+  // }
+  // 构造函数注入器
+  constructor(private cultureService: CultureService) {
   }
 
-  public allegorical: Result;
+  allegorical: Result;
 
-  private pageNum = Math.ceil(Math.random() * 800);
+  getPage(): void {
+    const cultype = 'allegorical';
+    this.cultureService.getData(cultype)
+      .subscribe(res => this.allegorical = res);
+  }
 
-  private url = '/yy/selallegoricalPage/自?pageSize=20&pageNum=' + this.pageNum;
+  // getSel(): void {
+  //   this.cultureService.getData()
+  //     .subscribe(res => this.allegorical = res);
+  // }
 
   ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.allegorical = <Result>res;
-    });
+    this.getPage();
+    // this.http.get(this.url).subscribe(res => {
+    //   this.allegorical = <Result>res;
+    // });
   }
 
-}
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {CultureService, Result} from '../service/culture/culture.service';
 
 @Component({
   selector: 'app-dic',
@@ -9,28 +9,18 @@ import {HttpClient} from '@angular/common/http';
 
 export class DicComponent implements OnInit {
 
-  shuoming = [
-    {
-      jianjie    : '【释义】',
-      xiangjie  : '【详细释义】'
-    }
-  ];
+  dic: Result;
 
-  shuoming1 = ['【释义】', '【详细释义】'];
+  constructor(private cultureService: CultureService) { }
 
-  public dic: Result;
-
-  constructor(private http: HttpClient) { }
-
-  private pageNum = Math.ceil(Math.random() * 1000);
-
-  ngOnInit() {
-    this.http.get('/yy/seldicPage/自?pageSize=20&pageNum=' + this.pageNum).subscribe(res => {this.dic = <Result>res; });
+  getPage(): void {
+    const cultype = 'dic';
+    this.cultureService.getData(cultype)
+      .subscribe(res => this.dic = res);
   }
 
-}
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
+  ngOnInit() {
+    this.getPage();
+  }
+
 }
