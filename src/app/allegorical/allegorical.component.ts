@@ -20,12 +20,14 @@ export class AllegoricalComponent implements OnInit {
 
   allegorical: Result;
 
+  // 为输入关键字
   getPage(): void {
     const cultype = 'allegorical';
     this.cultureService.getData(cultype)
       .subscribe(res => this.allegorical = res);
   }
 
+  // 输入关键字的情况下，根据关键字查询
   // getSel(): void {
   //   this.cultureService.getData()
   //     .subscribe(res => this.allegorical = res);
