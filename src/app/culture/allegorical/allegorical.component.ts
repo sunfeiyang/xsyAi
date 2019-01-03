@@ -1,5 +1,5 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {CultureService, Result} from '../service/culture/culture.service';
+import {CultureService, Result} from '../../service/culture/culture.service';
 
 // component装饰器是 @Injectable 的一个子类 所以可以直接注入别的服务
 @Component({

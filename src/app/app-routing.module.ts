@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {IdiomComponent} from './idiom/idiom.component';
+import {IdiomComponent} from './culture/idiom/idiom.component';
 import {UpfileComponent} from './upfile/upfile.component';
-import {AllegoricalComponent} from './allegorical/allegorical.component';
-import {DicComponent} from './dic/dic.component';
-import {FamousComponent} from './famous/famous.component';
-import {PoemComponent} from './poem/poem.component';
-import {TodayHistoryComponent} from './today-history/today-history.component';
-import {WordSeaComponent} from './word-sea/word-sea.component';
+import {AllegoricalComponent} from './culture/allegorical/allegorical.component';
+import {DicComponent} from './culture/dic/dic.component';
+import {FamousComponent} from './culture/famous/famous.component';
+import {PoemComponent} from './culture/poem/poem.component';
+import {TodayHistoryComponent} from './culture/today-history/today-history.component';
+import {WordSeaComponent} from './culture/word-sea/word-sea.component';
 
 const routes: Routes = [
   {path: '', component: AllegoricalComponent},

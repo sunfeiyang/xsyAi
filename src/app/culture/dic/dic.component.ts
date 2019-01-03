@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CultureService, Result} from '../service/culture/culture.service';
+import {CultureService, Result} from '../../service/culture/culture.service';
 
 @Component({
   selector: 'app-dic',
