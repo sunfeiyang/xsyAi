@@ -43,3 +43,13 @@
   width: auto;
   max-width: 100%;
 }
+
+a {
+  color: #9cadb4;
+  /* background-color: transparent; */
+  /* text-decoration: none; */
+  /* outline: none; */
+  /* cursor: pointer; */
+  /* transition: color 0.3s; */
+  -webkit-text-decoration-skip: objects;
+}
