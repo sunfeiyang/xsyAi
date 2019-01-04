@@ -7,13 +7,14 @@
       <li nz-submenu>
         <span title><i nz-icon type="read"></i><span class="nav-text">Culture</span></span>
         <ul>
-          <li nz-menu-item [routerLink]="['Allegorical']">Allegorical</li>
-          <li nz-menu-item [routerLink]="['Dic']">Dic</li>
-          <li nz-menu-item [routerLink]="['Famous']">Famous</li>
-          <li nz-menu-item [routerLink]="['Idiom']">Idiom</li>
-          <li nz-menu-item [routerLink]="['Poem']">Poem</li>
-          <li nz-menu-item [routerLink]="['TodayHistory']">TodayHistory</li>
-          <li nz-menu-item [routerLink]="['WordSea']">WordSea</li>
+          <li nz-menu-item routerLink="Allegorical/{{value_search}}">Allegorical</li>
+          <li nz-menu-item routerLink="Dic/{{value_search}}">Dic</li>
+          <li nz-menu-item routerLink="Famous/{{value_search}}">Famous</li>
+          <li nz-menu-item routerLink="Idiom/{{value_search}}">Idiom</li>
+          <li nz-menu-item routerLink="Poem/{{value_search}}">Poem</li>
+          <li nz-menu-item routerLink="TodayHistory">TodayHistory</li>
+          <li nz-menu-item routerLink="WordSea/{{value_search}}">WordSea</li>
+          <!--<li nz-menu-item [routerLink]="['WordSea']">WordSea</li>-->
         </ul>
       </li>
       <li nz-submenu>
@@ -29,8 +30,17 @@
   <nz-layout>
     <nz-header style="background: #fff; padding:0;">
       <i class="trigger" nz-icon [type]="ishidden?'right':'left'" (click)="ishidden=!ishidden"></i>
-      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
-      <input type="text" nz-input placeholder="搜索"><i nz-icon type="search" style="padding-left: 10px"></i>
+      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed" [hidden]="ishidden"></i>
+      <form [formGroup]="formModel" style="float: right; padding-right: 25px;max-width: 50%;">
+        <label>
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="请输入关键字" formControlName="keyWrod" [(ngModel)]="value_search">
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon type="search" style="padding-left: 10px" (click)="serach()"></i>
+          </ng-template>
+        </label>
+      </form>
     </nz-header>
     <nz-content style="margin:6px 16px;">
       <!--<nz-input-group [nzSuffix]="suffixIconSearch" style="margin-bottom:6px">-->

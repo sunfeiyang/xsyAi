@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CultureService, Result} from '../../service/culture/culture.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-dic',
@@ -11,16 +12,24 @@ export class DicComponent implements OnInit {
 
   dic: Result;
 
-  constructor(private cultureService: CultureService) { }
+  constructor(private route: ActivatedRoute,
+              private cultureService: CultureService) { }
 
   getPage(): void {
     const cultype = 'dic';
-    this.cultureService.getData(cultype)
+    const value_search = this.route.snapshot.paramMap.get('serachValue');
+    this.cultureService.getData(cultype, value_search)
       .subscribe(res => this.dic = res);
   }
 
   ngOnInit() {
     this.getPage();
+    // 订阅搜索事件流
+    this.cultureService.searchEvent.subscribe(
+      params => this.cultureService.getSearch(params).subscribe(
+        res => this.dic = res
+      )
+    );
   }
 
 }

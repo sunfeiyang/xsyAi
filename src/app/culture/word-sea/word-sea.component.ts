@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CultureService, Result} from '../../service/culture/culture.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-word-sea',
@@ -8,19 +9,28 @@ import {CultureService, Result} from '../../service/culture/culture.service';
 })
 export class WordSeaComponent implements OnInit {
 
-  constructor(private cultureService: CultureService) {
+  constructor(private route: ActivatedRoute,
+              private cultureService: CultureService) {
   }
 
   public wordSea: Result;
 
   getPage(): void {
     const cultype = 'wordSea';
-    this.cultureService.getData(cultype)
+    // 获得查询框中的内容
+    const value_search = this.route.snapshot.paramMap.get('serachValue');
+    this.cultureService.getData(cultype,value_search)
       .subscribe(res => this.wordSea = res);
   }
 
   ngOnInit() {
     this.getPage();
+    // 订阅搜索事件流
+    this.cultureService.searchEvent.subscribe(
+      params => this.cultureService.getSearch(params).subscribe(
+        res => this.wordSea = res
+      )
+    );
   }
 
 }

@@ -19,6 +19,12 @@ const routes: Routes = [
   {path: 'Poem', component: PoemComponent},
   {path: 'TodayHistory', component: TodayHistoryComponent},
   {path: 'WordSea', component: WordSeaComponent},
+  {path: 'Allegorical/:serachValue', component: AllegoricalComponent},
+  {path: 'Dic/:serachValue', component: DicComponent},
+  {path: 'Famous/:serachValue', component: FamousComponent},
+  {path: 'Idiom/:serachValue', component: IdiomComponent},
+  {path: 'Poem/:serachValue', component: PoemComponent},
+  {path: 'WordSea/:serachValue', component: WordSeaComponent},
   {path: '*', redirectTo: '/xsyAi', pathMatch: 'full' },
 ];
 

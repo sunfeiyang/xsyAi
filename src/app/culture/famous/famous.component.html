@@ -13,3 +13,6 @@
     </nz-list-item>
   </ng-template>
 </nz-list>
+<nz-list *ngIf="famous?.code === 1001">
+  <p style="text-align: center;height: 40px;line-height: 40px;">{{famous?.msg}}</p>
+</nz-list>

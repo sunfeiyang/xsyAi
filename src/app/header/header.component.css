@@ -31,3 +31,15 @@
 .ant-input {
   width: auto;
 }
+
+.ant-input-affix-wrapper {
+  width: auto;
+}
+.ant-input-affix-wrapper[_ngcontent-c1] {
+  width: auto;
+  max-width: 100%;
+}
+.ant-input[_ngcontent-c1] {
+  width: auto;
+  max-width: 100%;
+}

@@ -9,7 +9,7 @@
         </nz-collapse-panel>
       </nz-collapse>
     </div>
-    <div *ngIf="panel.poem_jieshao != null && panel.poem_jieshao != ''">
+    <div *ngIf="panel.poem_jieshao != null && panel.poem_jieshao != '' && panel.poem_jieshao != '【注释】<br>'">
       <nz-collapse>
         <nz-collapse-panel [nzHeader]="'【简介】'"
                            [nzActive]="false">
@@ -19,3 +19,6 @@
     </div>
   </nz-collapse-panel>
 </nz-collapse>
+<nz-list *ngIf="poem?.code === 1001">
+  <p style="text-align: center;height: 40px;line-height: 40px;">{{poem?.msg}}</p>
+</nz-list>

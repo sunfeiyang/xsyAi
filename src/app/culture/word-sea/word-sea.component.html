@@ -4,11 +4,14 @@
     <nz-list-item>
       <nz-list-item-meta
         [nzTitle]="nzTitle"
-        nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>11111</p>{{item.wordseacontent}}">
+        nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'【'+item.wordseacontent.replace('<br>','】')}}">
         <ng-template #nzTitle>
           {{item.wordseawords}}
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
   </ng-template>
+</nz-list>
+<nz-list *ngIf="wordSea?.code === 1001">
+  <p style="text-align: center;height: 40px;line-height: 40px;">{{wordSea?.msg}}</p>
 </nz-list>
