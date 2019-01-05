@@ -28,7 +28,7 @@
       <form [formGroup]="formModel" style="float: right; padding-right: 25px;max-width: 50%;">
         <label>
           <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input type="text" nz-input placeholder="请输入关键字" formControlName="keyWrod" [(ngModel)]="value_search">
+            <input type="text" nz-input placeholder="请输入关键字" formControlName="keyWrod" [(ngModel)]="value_search" (keydown.enter)= "serach()">
           </nz-input-group>
           <ng-template #suffixIconSearch>
             <i nz-icon type="search" style="padding-left: 10px" (click)="serach()"></i>

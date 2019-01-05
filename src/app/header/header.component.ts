@@ -17,9 +17,10 @@ export class HeaderComponent implements OnInit {
   value_search = '';
 
   // 控制导航栏是否显示
-  ishidden = true;
+  ishidden = false;
   // 控制导航栏是否展开
-  isCollapsed = false;
+  isCollapsed = true;
+
   triggerTemplate = null;
   @ViewChild('trigger') customTrigger: TemplateRef<void>;
 
