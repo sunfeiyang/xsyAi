@@ -12,7 +12,7 @@ export class UpfileComponent implements OnInit {
   constructor(private msg: NzMessageService, private http: HttpClient) {}
 
   // 图片识别结果是否显示，false为显示 true为不显示
-  private textShow = true;
+  textShow = true;
 
   fileList = [
     // {
@@ -25,9 +25,9 @@ export class UpfileComponent implements OnInit {
   previewImage = '';
   previewVisible = false;
 
-  private OcrTextAlert = '请先上传要识别的图片！';
+  OcrTextAlert = '请先上传要识别的图片！';
 
-  private OcrText = '';
+  OcrText = '';
 
   // 图片上传过程中执行 在开始、上传进度、完成、失败都会调用这个函数。
   handleChange(info: any): void {

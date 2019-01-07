@@ -9,6 +9,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FamousComponent implements OnInit {
 
+  loading = true;
+
   famous: Result;
 
   constructor(private route: ActivatedRoute,
@@ -18,7 +20,7 @@ export class FamousComponent implements OnInit {
     const cultype = 'famous';
     // 获得查询框中的内容
     const value_search = this.route.snapshot.paramMap.get('serachValue');
-    this.cultureService.getData(cultype,value_search)
+    this.cultureService.getData(cultype, value_search)
       .subscribe(res => this.famous = res);
   }
 
@@ -30,6 +32,7 @@ export class FamousComponent implements OnInit {
         res => this.famous = res
       )
     );
+    this.loading = false;
   }
 
 }

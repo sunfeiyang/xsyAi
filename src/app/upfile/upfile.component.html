@@ -1,18 +1,18 @@
 <!--<nz-skeleton [nzActive]="true" [nzAvatar]="size?[]:[small]"></nz-skeleton>-->
 <div class="show" [ngStyle]="{ 'padding-bottom': '35px' }" >
   <img [src]="previewImage" [ngStyle]="{ 'width': '100%', 'max-height': '450px', 'padding-bottom': '8px' }" />
-  <input [ngStyle]="{'width': 'auto' }" nz-input placeholder="{{OcrTextAlert}}" [(ngModel)]="value" [disabled]="true" [hidden]="!textShow" >
-  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]="textShow" >全部拼接</h3>
-  <p [hidden]="textShow" >{{OcrText[0]}}</p>
+  <input [ngStyle]="{'width': 'auto' }" nz-input placeholder='{{OcrTextAlert}}' [disabled]="true" [hidden]='!textShow' >
+  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]='textShow' >全部拼接</h3>
+  <p [hidden]='textShow' >{{OcrText[0]}}</p>
   <!--<textarea nz-input placeholder="{{OcrText[0]}}" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>-->
   <!--<textarea rows="6" nz-input placeholder="{{OcrText[0]}}"  [(ngModel)]="value" [nzAutosize]="{ rows: 3, minRows: 3, maxRows: 10 }" [hidden]="textShow" style="margin-bottom: 6px"></textarea>-->
-  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]="textShow" >正常显示</h3>
-  <p [hidden]="textShow" [innerHTML]="OcrText[1]"></p>
+  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]='textShow' >正常显示</h3>
+  <p [hidden]='textShow' [innerHTML]='OcrText[1]'></p>
   <!--<textarea nz-input placeholder="{{OcrText[1]}}"  [(ngModel)]="value" [nzAutosize]="{ minRows: 3, maxRows: 10 }" [hidden]="textShow" style="margin-bottom: 6px"></textarea>-->
-  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]="textShow" >逐条显示</h3>
-  <nz-list [nzDataSource]="OcrText[2]" nzBordered nzSize="small"
-           [nzRenderItem]="item" [hidden]="textShow" style="margin-bottom: 6px">
-    <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+  <h3 [ngStyle]="{'margin': '16px 0' }" [hidden]='textShow' >逐条显示</h3>
+  <nz-list [nzDataSource]='OcrText[2]' nzBordered nzSize="small"
+           [nzRenderItem]='item' [hidden]='textShow' style="margin-bottom: 6px">
+    <ng-template #item let-item><nz-list-item [nzContent]='item'></nz-list-item></ng-template>
   </nz-list>
 
 </div>

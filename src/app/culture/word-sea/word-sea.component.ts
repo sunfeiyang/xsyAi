@@ -9,6 +9,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class WordSeaComponent implements OnInit {
 
+  loading = true;
+
   constructor(private route: ActivatedRoute,
               private cultureService: CultureService) {
   }
@@ -31,6 +33,7 @@ export class WordSeaComponent implements OnInit {
         res => this.wordSea = res
       )
     );
+    this.loading = false;
   }
 
 }

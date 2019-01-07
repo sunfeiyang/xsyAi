@@ -9,6 +9,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TodayHistoryComponent implements OnInit {
 
+  loading = true;
+
   constructor(private route: ActivatedRoute,
               private cultureService: CultureService) {
   }
@@ -31,5 +33,6 @@ export class TodayHistoryComponent implements OnInit {
         res => this.todayHistory = res
       )
     );
+    this.loading = false;
   }
 }
