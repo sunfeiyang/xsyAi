@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FamousComponent implements OnInit {
 
-  loading = true;
+  loading = false;
 
   famous: Result;
 
@@ -32,7 +32,7 @@ export class FamousComponent implements OnInit {
         res => this.famous = res
       )
     );
-    this.loading = false;
+    // this.loading = false;
   }
 
 }
