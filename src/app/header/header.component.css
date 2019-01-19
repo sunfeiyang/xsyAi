@@ -22,7 +22,7 @@
 }
 
 .ant-layout-header {
-  background: #001529;
+  background: #cdacff;
   padding: 0 50px;
   height: 50px;
   line-height: 50px;
@@ -53,3 +53,25 @@ a {
   /* transition: color 0.3s; */
   -webkit-text-decoration-skip: objects;
 }
+
+/*设置背景色*/
+.ant-layout-sider {
+  transition: all 0.2s;
+  position: relative;
+  background: #cdacff;
+  min-width: 0;
+}
+
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+  color: rgba(255, 255, 255, 0.65);
+  background: #cdacff;
+}
+
+/*.ant-menu-dark .ant-menu-inline.ant-menu-sub {*/
+  /*background: #f5e4ff;*/
+  /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;*/
+/*}*/
+/*.ant-menu-dark, .ant-menu-dark .ant-menu-sub {*/
+  /*color: rgba(255, 255, 255, 0.65);*/
+   /*background: #f5e4ff;*/
+/*}*/
