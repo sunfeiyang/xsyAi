@@ -7,7 +7,7 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { MenuComponent } from './menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -47,7 +47,9 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, CultureService],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, CultureService,
+    // 增加provide 优化刷新404问题
+    { provide: LocationStrategy, useClass: HashLocationStrategy, }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
