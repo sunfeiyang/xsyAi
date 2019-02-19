@@ -2,8 +2,7 @@
 <nz-list [nzDataSource]="todayHistory?.data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]='loading'>
   <ng-template #item let-item>
     <nz-list-item>
-      <nz-list-item-meta
-        [nzTitle]="nzTitle"
+      <nz-list-item-meta [nzTitle]="nzTitle"
         nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.todayhistorytitle}}">
         <ng-template #nzTitle>
           {{item.today_history_year}}-{{item.todayhistorymonth}}-{{item.todayhistoryday}}
